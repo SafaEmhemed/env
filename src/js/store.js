@@ -3,6 +3,7 @@ import root from './reducers/root';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { fromJS } from 'immutable';
+
 import History from 'history-init';
 
 import { routerMiddleware, connectRouter } from 'connected-react-router/immutable';
