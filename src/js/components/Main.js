@@ -26,12 +26,10 @@ class Main extends React.Component{
 	render(){
 		const { history } = this.props;
 		return (
-			<App centered={false}>
-				<StickyContainer>
-					<ConnectedRouter history={history}>
-						<Routes />
-					</ConnectedRouter>
-				</StickyContainer>
+			<App centered={false}>>
+				<ConnectedRouter history={history}>
+					<Routes />
+				</ConnectedRouter>
 			</App>
 		);
 	}
