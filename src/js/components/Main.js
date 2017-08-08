@@ -6,7 +6,6 @@ import { ConnectedRouter } from 'connected-react-router/immutable';
 
 // UI components
 import App from 'grommet/components/App';
-import { StickyContainer } from 'react-sticky';
 
 // local imports
 import Routes from 'routes';
