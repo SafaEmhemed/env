@@ -1,20 +1,22 @@
 // base
 import React from 'react';
 
+import Ahmed from './todo';
+
 import './style.scss';
 
 /**
  * Home Component
  */
 class HomePage extends React.Component{
-	
 	/**
 	 * render
 	 */
 	render(){
 		return (
-			<div className='clearfix' style={{ height: '100%' }}>
-				<h1>Welcome to your first project</h1>
+			<div>
+				<h1>Hi class</h1>
+				<Ahmed />
 			</div>
 		);
 	}
