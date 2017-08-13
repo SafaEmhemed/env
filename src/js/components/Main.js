@@ -26,7 +26,7 @@ class Main extends React.Component{
 	render(){
 		const { history } = this.props;
 		return (
-			<App centered={false}>>
+			<App centered={false}>
 				<ConnectedRouter history={history}>
 					<Routes />
 				</ConnectedRouter>
