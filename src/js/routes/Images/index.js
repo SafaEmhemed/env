@@ -1,12 +1,7 @@
-// base
 import React from 'react';
-
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import Select from 'grommet/components/Select';
 
 // icons
 import LikeIcon from 'grommet/components/icons/base/Like';
-
 
 const obj = [
 	{
@@ -131,86 +126,34 @@ const obj = [
 	}
 ];
 
-import './style.scss';
+class Images extends React.Component {
 
-/**
- * Home Component
- */
-class HomePage extends React.Component{
-	/**
-	 * @constructor
-	 */
-	constructor(){
-		super();
-		this.state = {
-			cols: 3
-		};
+	getItem = (id) =>{
+		for (let i =0 ; i < obj.length ; i ++){
+			if(id == obj[i].id){
+				return obj[i];
+			}
+		}
 	}
-	/**
-	 * generate our blocks
-	 */
-	generateItem = (item) => {
-		console.log(this.state);
-		console.log(this);
-		return (
-			<Col key={item.id} lg={this.state.cols} md={this.state.cols} sm={6} xs={12}>
-				<img onClick={this.clickEvent.bind(this, item.id)} src={item.url} />
-				<div className='picture-details'>
-					<p>{item.content}</p>
-					<div className='action-container'>
-						<div className='like'>
-							<LikeIcon />
-							<span>({item.likes})</span>
-						</div>
+
+	render(){
+		console.log(this.props.match.params.imgId);
+		const item = this.getItem(this.props.match.params.imgId);
+		return(
+			<div>
+			<img src={'../' + item.url} />
+			<div className='picture-details'>
+				<p>{item.content}</p>
+				<div className='action-container'>
+					<div className='like'>
+						<LikeIcon />
+						<span>({item.likes})</span>
 					</div>
 				</div>
-			</Col>
-		);
-	}
-
-	clickEvent = (id) => {
-		this.props.history.push('images/' + id);
-	};
-
-	change = (option) => {
-		const value = 12 / option.value;
-		this.setState({
-			cols: value
-		});
-	}
-
-	/**
-	 * render
-	 */
-	render(){
-		return (
-			<Grid fluid className='page'>
-				<Row>
-					<Col xs={4} lg={4} sm={12} md={4} />
-					<Col xs={4} lg={4} sm={12} md={4}>
-						<div className='logo' />
-						<h5>Welcome to our Insta</h5>
-					</Col>
-					<Col xs={4} lg={4} sm={12} md={4} />
-				</Row>
-				<Row>
-					<Select
-					options={[
-						1,
-						2,
-						3,
-						4
-					]}
-					onChange={this.change} />
-				</Row>
-				<Row>
-					{
-						obj.map(this.generateItem)
-					}
-				</Row>
-			</Grid>
+			</div>
+			</div>
 		);
 	}
 }
 
-export default HomePage;
+export default Images;

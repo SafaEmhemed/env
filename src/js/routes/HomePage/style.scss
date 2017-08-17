@@ -20,9 +20,42 @@
 	.picture-details {
 
 		p {
-			margin-top: 0 !important;
+			margin: 0 !important;
 			padding: 10px 0 0 8px;
 		}
+
+		.action-container {
+			position: relative;
+			height: 45px;
+
+			.like {
+				position: absolute;
+				top: 10px;
+
+				svg {
+					stroke: #bfb5b5 !important;
+					fill: #bfb5b5 !important;
+					width: 20px !important;
+					height: 20px !important;
+					position: relative;
+
+					&:hover {
+						top: -10px;
+						stroke: #b54444 !important;
+						fill: #b54444 !important;
+					}
+
+				}
+
+				span {
+					padding-left: 10px;
+				}
+
+
+			}
+		}
+
+
 	}
 
 }
