@@ -1,61 +1,184 @@
 @import '~css-base';
-
-.page {
-
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+*{
+	box-sizing: content-box !important;
+	font-family: Arial !important;
+}
+div , span{
+	font-size: 15px;
+	font-weight: bold;
+}
+.sort{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	background-color: transparent;
+    border: 2px solid #865cd6;
+    border-radius: 0 !important;
+    font-size: 15px !important;
+    line-height: normal !important;
+    font-weight: bold !important;
+    text-align: center;
+	min-width: 50px !important;
+	max-width: 50px !important;
+	height:50px !important;
+	padding: 0 !important;
+}
+header {
+	position: relative;
+	background-color: #f5f5f5;
+	width: 85%;
+	height: 300px;
+	padding:15px 0 ;
+	margin: 0 auto 15px;
 	.logo {
 		background: $logo-url;
 		width: 200px;
-		height: 198px;
+		height: 200px;
 		background-size: 100%;
 		margin: 0 auto;
+		background-repeat: no-repeat;
 	}
-
-	h1 {
+	h5 {
+		display: block;
+		width: 100%;
+		height: 60px;
+		line-height: 60px !important;
 		text-align: center;
-    padding-top: 10px;
-		font-weight: 600;
-		font-family: $english-font-title;
-	}
+		font-weight: bold !important;
+		font-family:  'Satisfy', cursive !important;
+		margin: 17px auto;
+		font-size: 25px !important;
+	}	
+} 
 
-	.picture-details {
-
-		p {
-			margin: 0 !important;
-			padding: 10px 0 0 8px;
+.imgpage{
+	margin: 0 auto;
+	padding:0px;
+	background-color: #f5f5f5;
+	width: 85%;
+	justify-content : space-around;
+}
+h6{
+		width: 100%;
+		height: 30px;
+		line-height: 30px !important;
+		text-align: left;
+		font-weight: bold !important;
+		padding: 0 !important;
+		margin: 0 !important;
+}
+section {
+	background-color: #f5f5f5;
+	width: 85%;
+	margin: 15px auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content : space-around;
+	.image-container{
+		border: #ada8a8 solid 1px;
+		margin: 10px 0.8%;
+		padding: 10px;
+		width: 21%;
+		display: inline-block ;
+		img{
+			//box-shadow: black .... ;
 		}
 
-		.action-container {
-			position: relative;
-			height: 45px;
-
-			.like {
-				position: absolute;
-				top: 10px;
-
+	}
+}
+.picture-details {
+		
+		.like {
+				padding: 6px;
+				float: left;
 				svg {
 					stroke: #bfb5b5 !important;
 					fill: #bfb5b5 !important;
 					width: 20px !important;
 					height: 20px !important;
-					position: relative;
-
 					&:hover {
-						top: -10px;
-						stroke: #b54444 !important;
-						fill: #b54444 !important;
+						stroke: #aa0606 !important;
+						fill: #aa0606 !important;
 					}
-
 				}
-
-				span {
-					padding-left: 10px;
-				}
-
-
-			}
+				.likebtn{
+					background-color: transparent;
+					border: 2px solid #aa0606 !important;
+					border-radius: 0 !important;
+					line-height: normal !important;
+					min-width: 25px !important;
+					max-width: 25px !important;
+					height:22px !important;
+					padding: 1.5px !important;
+					margin: 1px !important;
+				
 		}
-
-
+				span {
+					line-height: 40px !important;
+					line-height: 40px !important;;
+					padding:10px;
+				}
+			}
+			.content {
+			line-height: 40px !important;
+			line-height: 40px !important;
+			padding:0px;
+			line-height: 11px !important;
+			clear: both;
+		}
+		
+	}
+	.comment{
+		width : 50%;
+		margin: 0 auto;
+		border: #ada8a8 solid 0.5px;
+		padding: 15px;
+		h6{
+			width: 100%;
+			height: 25px;
+			line-height: 25px !important;
+			text-align: left;
+			font-weight: bold !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+		p{
+			margin:0 !important;
+			padding:10px !important;
+		}
+	}
+	.comm{
+		width: 50%;
+		height: 40px;
+		margin: 0 auto 15px !important;
+		padding: 15px;
+		position: relative;
+		textarea{
+		position: absolute;
+		left: 0;
+		top: 0;
+		display:block;
+		width: 90%;
+		float: left;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	.commBtn{
+		position: absolute;
+		right: 0;
+		top: 0;
+		display:block !important;
+		float: right!important;
+		min-width:8% !important;
+		max-width:8% !important;
+		border: 2px solid #aa0606 !important;
+		border-radius: 0 !important;
+		line-height: normal !important;
+		height:40px !important;
+		padding: 0 !important;
+		margin: 0 !important;
 	}
 
-}
+	}
+	

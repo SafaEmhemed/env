@@ -1,12 +1,12 @@
 // base
 import React from 'react';
-
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import Select from 'grommet/components/Select';
 
 // icons
 import LikeIcon from 'grommet/components/icons/base/Like';
-
+import StopIcon from 'grommet/components/icons/base/Stop';
+import DislikeIcon from 'grommet/components/icons/base/Dislike';
+import Link from 'react-router';
 
 const obj = [
 	{
@@ -143,8 +143,32 @@ class HomePage extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			cols: 3
+			likesarr :[obj[0].likes,
+					obj[1].likes,
+					obj[2].likes,
+					obj[3].likes,
+					obj[4].likes,
+					obj[5].likes,
+					obj[6].likes,
+					obj[7].likes,
+					obj[8].likes,
+					obj[9].likes
+			]
 		};
+	}
+
+	
+	likeIncrement(i){
+		let a = this.state.likesarr.slice();
+		a[i-1] = a[i-1]+1;
+		this.setState({likesarr:a});
+		//console.log(a[i]);
+	}
+	likedecrement(i){
+		let a = this.state.likesarr.slice();
+		a[i-1] = a[i-1]-1;
+		this.setState({likesarr:a});
+		//console.log(a[i]);
 	}
 	/**
 	 * generate our blocks
@@ -153,62 +177,48 @@ class HomePage extends React.Component{
 		console.log(this.state);
 		console.log(this);
 		return (
-			<Col key={item.id} lg={this.state.cols} md={this.state.cols} sm={6} xs={12}>
-				<img onClick={this.clickEvent.bind(this, item.id)} src={item.url} />
-				<div className='picture-details'>
-					<p>{item.content}</p>
-					<div className='action-container'>
+			<div  className='image-container' key={item.id} >
+				<h6 onClick={this.navuserpro.bind(this, item.author.name)}>{item.author.name}</h6>
+				<img  onClick={this.clickEvent.bind(this, item.id)} src={item.url} />
+					<div className='picture-details'>
 						<div className='like'>
-							<LikeIcon />
-							<span>({item.likes})</span>
-						</div>
+								<button onClick={()=>this.likeIncrement(item.id)} className="likebtn"><LikeIcon /></button>
+								<button onClick={()=>this.likedecrement(item.id)} className="likebtn"><DislikeIcon/></button>
+								<span>({this.state.likesarr[item.id-1]})</span>
+							</div>
+						<div className='content'>{item.content}</div>
 					</div>
 				</div>
-			</Col>
 		);
 	}
 
 	clickEvent = (id) => {
 		this.props.history.push('images/' + id);
 	};
-
-	change = (option) => {
-		const value = 12 / option.value;
-		this.setState({
-			cols: value
-		});
+	navuserpro(name){
+		this.props.history.push('users/'+name);
 	}
+
+	change = () => {
+		document.getElementById('imgcont').classList.toggle('image-container');
+		}
 
 	/**
 	 * render
 	 */
 	render(){
 		return (
-			<Grid fluid className='page'>
-				<Row>
-					<Col xs={4} lg={4} sm={12} md={4} />
-					<Col xs={4} lg={4} sm={12} md={4}>
+			<div>
+				<header>
 						<div className='logo' />
 						<h5>Welcome to our Insta</h5>
-					</Col>
-					<Col xs={4} lg={4} sm={12} md={4} />
-				</Row>
-				<Row>
-					<Select
-					options={[
-						1,
-						2,
-						3,
-						4
-					]}
-					onChange={this.change} />
-				</Row>
-				<Row>
+				</header>	
+				<section>
 					{
 						obj.map(this.generateItem)
 					}
-				</Row>
-			</Grid>
+				</section>
+			</div>		
 		);
 	}
 }

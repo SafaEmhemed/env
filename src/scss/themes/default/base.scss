@@ -3,6 +3,7 @@
 @import '~css-colors';
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
 // @media queries
 $size-small-mobile: (min-width: 412px) and (max-width: 455px);
 $size-medium-screen: (min-width: 800px) and (max-width: 966px);
@@ -20,7 +21,6 @@ $english-font-title: 'Helvetica Neue', sans-serif;
 $english-font-helper: 'Josefin Slab', sans-serif;
 
 // fonts
-
 @font-face {
 	font-family: "Helvetica Neue";
 	font-weight:200;
